@@ -29,6 +29,29 @@ app.get("/resources", (req, res) => {
     });
 });
 
+// POST (CREATE) resource
+app.post("/resources", (req, res) => {
+    const query = "INSERT INTO resources \
+                  (`title`, `description`, `type`, `category`, `subcategory`, `link`) \
+                  VALUES (?) ";
+    const values = [
+        req.body.title,
+        req.body.description,
+        req.body.type,
+        req.body.category,
+        req.body.subcategory,
+        req.body.link
+    ];
+
+    db.query(query, [values], (err, data) => {
+        if (err) {
+            console.error(err);
+            res.status(500).send(err);
+        }
+        return res.status(201).json(data);
+    })
+});
+
 app.listen(8800, () => {
     console.log("Connected to backend");
 });
