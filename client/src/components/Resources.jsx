@@ -30,22 +30,35 @@ const Resources = () => {
 
     return (
         <>
-            <h1>All Resources</h1>
-            <div className="resources">
-                {resources.map(resource => (
-                    <div className="resource" key={resource.id}>
-                        <h2>Title: {resource.title}</h2>
-                        <p>Desription: {resource.description}</p>
-                        <p>Type: {resource.type}</p>
-                        <p>Category: {resource.category}</p>
-                        <p>Sub_Category: {resource.sub_category}</p>
-                        <p>Link: {resource.link}</p>
-                        <button className="delete" onClick={() => handleDelete(resource.id)}>Delete</button>
-                        <button className="update"><Link to={`/update/${resource.id}`}>Update</Link></button>
-                    </div>
-                ))}
-            </div>
-            <Link to="/add">Add New Resource</Link>
+            <Link to="/add">Add New Resource</Link><h1>All Resources</h1>
+            <table className="resources">
+                <thead>
+                    <tr>
+                        <th>Title</th>
+                        <th>Description</th>
+                        <th>Type</th>
+                        <th>Category</th>
+                        <th>Sub Category</th>
+                        <th>Link</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {resources.map(resource => (
+                        <tr clasName="resource" key={resource.id}>
+                            <td>{resource.title}</td>
+                            <td>{resource.description}</td>
+                            <td>{resource.type}</td>
+                            <td>{resource.category}</td>
+                            <td>{resource.sub_category}</td>
+                            <td>{resource.link}</td>
+                            <td>
+                                <button className="delete" onClick={() => handleDelete(resource.id)}>Delete</button>
+                                <button className="update"><Link to={`/update/${resource.id}`}>Update</Link></button>
+                            </td>
+                        </tr>
+                    ))}
+                </tbody>
+            </table>
         </>
     )
 }

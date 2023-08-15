@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Resources from './components/Resources';
 import AddResourceForm from './components/AddResourceForm';
 import UpdateResourceForm from './components/UpdateResourceForm';
+import './App.css';
 
 function App() {
   return (
