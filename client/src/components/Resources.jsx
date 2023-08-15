@@ -2,6 +2,7 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import '../styles/Resources.css';
 
 const Resources = () => {
     const [resources, setResources] = useState([]);
@@ -31,7 +32,7 @@ const Resources = () => {
     return (
         <>
             <Link to="/add">Add New Resource</Link><h1>All Resources</h1>
-            <table className="resources">
+            <table className="resources-table">
                 <thead>
                     <tr>
                         <th>Title</th>
@@ -40,6 +41,7 @@ const Resources = () => {
                         <th>Category</th>
                         <th>Sub Category</th>
                         <th>Link</th>
+                        <th>Edit</th>
                     </tr>
                 </thead>
                 <tbody>
