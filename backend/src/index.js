@@ -60,9 +60,31 @@ app.delete("/resources/:id", (req, res) => {
     db.query(query, [resourceId], (err, data) => {
         if (err) {
             return res.status(500).send(err);
-        } else {
-            return res.status(204).json("Resource has been deleted");
         }
+        return res.status(204).json("Resource has been deleted");
+    });
+});
+
+// PUT (UPDATE) resources
+app.put("/resources/:id", (req, res) => {
+    const resourceId = req.params.id;
+    const query = "UPDATE resources SET \
+                  `title` = ?, `description` = ?, `type` = ?, `category` = ?, `sub_category` = ?, `link` = ? \
+                  WHERE id = ?";
+    const values = [
+        req.body.title,
+        req.body.description,
+        req.body.type,
+        req.body.category,
+        req.body.sub_category,
+        req.body.link
+    ];
+
+    db.query(query, [...values, resourceId], (err, data) => {
+        if (err) {
+            return res.status(500).send(err);
+        }
+        return res.status(204).json(data);
     });
 });
 

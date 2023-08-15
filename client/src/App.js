@@ -10,7 +10,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Resources />} />
           <Route path="/add" element={<AddResourceForm />} />
-          <Route path="/update" element={<UpdateResourceForm />} />
+          <Route path="/update/:id" element={<UpdateResourceForm />} />
         </Routes>
       </BrowserRouter>
     </div>
