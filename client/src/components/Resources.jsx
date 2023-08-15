@@ -4,7 +4,7 @@ import axios from 'axios';
 import { Link } from 'react-router-dom';
 import '../styles/Resources.css';
 import updateSymbol from '../assets/images/pencil.png';
-import deleteSymbol from '../assets/images/trash_can.png';
+import deleteSymbol from '../assets/images/minus.png';
 
 const Resources = () => {
     const [resources, setResources] = useState([]);
@@ -55,11 +55,11 @@ const Resources = () => {
                             <td>{resource.sub_category}</td>
                             <td>
                                 <button className="delete" onClick={() => handleDelete(resource.id)}>
-                                    <img src={deleteSymbol} alt="pencil symbol" className="deleteSymbol"/>
+                                    <img src={deleteSymbol} alt="delete symbol" className="symbol"/>
                                 </button>
                                 <button className="update">
                                     <Link to={`/update/${resource.id}`}>
-                                        <img src={updateSymbol} alt="pencil symbol" className="updateSymbol"/>
+                                        <img src={updateSymbol} alt="update symbol" className="symbol"/>
                                     </Link>
                                 </button>
                             </td>
