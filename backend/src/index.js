@@ -49,7 +49,21 @@ app.post("/resources", (req, res) => {
             res.status(500).send(err);
         }
         return res.status(201).json("Resource has been created");
-    })
+    });
+});
+
+// DELETE (DELETE) resource
+app.delete("/resources/:id", (req, res) => {
+    const resourceId = req.params.id;
+    const query = "DELETE FROM resources WHERE id = ? ";
+
+    db.query(query, [resourceId], (err, data) => {
+        if (err) {
+            return res.status(500).send(err);
+        } else {
+            return res.status(204).json("Resource has been deleted");
+        }
+    });
 });
 
 app.listen(8800, () => {

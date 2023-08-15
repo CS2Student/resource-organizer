@@ -19,6 +19,15 @@ const Resources = () => {
         fetchResources();
     }, []);
 
+    const handleDelete = async (id) => {
+        try {
+            await axios.delete(`http://localhost:8800/resources/${id}`);
+            window.location.reload();
+        } catch (err) {
+            console.error(err);
+        }
+    }
+
     return (
         <>
             <h1>All Resources</h1>
@@ -31,6 +40,8 @@ const Resources = () => {
                         <p>Category: {resource.category}</p>
                         <p>Sub_Category: {resource.sub_category}</p>
                         <p>Link: {resource.link}</p>
+                        <button className="delete" onClick={() => handleDelete(resource.id)}>Delete</button>
+                        <button className="update"><Link to={`/update/${resource.id}`}>Update</Link></button>
                     </div>
                 ))}
             </div>
