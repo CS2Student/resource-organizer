@@ -1,7 +1,26 @@
+:root {
+    --main-color: #28282B;
+    --bg-color: #28282B;
+    --text-color: white;
+    --text-color-hover: #01C38D;
+
+    --burger-menu-color: #262626;
+}
+
+* {
+    text-decoration: none;
+}
+
+.resources-container {
+    padding: 20px;
+}
+
 .resources-table {
     width: 100%;
     border-collapse: collapse;
     margin-bottom: 20px;
+    border-left: 1px solid #ddd;
+    border-right: 1px solid #ddd;
 }
 
 .resources-table th, .resources-table td {
@@ -9,8 +28,6 @@
     border-bottom: 1px solid #ddd;
     text-align: left;
 }
-
-
 
 .resources-table th {
     background-color: #f2f2f2;

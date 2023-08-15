@@ -2,6 +2,7 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import Navbar from './Navbar';
 import '../styles/Resources.css';
 import updateSymbol from '../assets/images/pencil.png';
 import deleteSymbol from '../assets/images/minus.png';
@@ -33,6 +34,7 @@ const Resources = () => {
 
     return (
         <div className="resources-container">
+            <Navbar />
             <h1 className="resources-title">All Resources</h1>
             <table className="resources-table">
                 <thead>
