@@ -11,8 +11,15 @@
     text-decoration: none;
 }
 
+/* Resource Page */
+
 .resources-container {
-    padding: 20px;
+    padding: 50px;
+}
+
+.resources-title {
+    text-align: center;
+    padding-bottom: 10px;
 }
 
 .resources-table {
@@ -33,20 +40,37 @@
     background-color: #f2f2f2;
 }
 
-.delete, .update {
+/* Buttons */
+
+.delete-btn, .update-btn, .add-btn, .searchBar{
     padding: 5px 10px;
     margin-right: 5px;
     border: none;
     background-color: #f44336;
     color: white;
     cursor: pointer;
+    border-radius: 3px;
+    border: 1px solid;
 }
 
-.update {
+.update-btn, .add-btn{
     background-color: #2196F3;
 }
 
 .symbol {
     width: 10px;
     height: auto;
+}
+
+/* Navbar */
+.navbar {
+    padding-bottom: 20px;
+}
+
+.searchBar {
+    margin-bottom: 5px;
+    padding-top: 7px;
+    cursor: text;
+    background-color: white;
+    color: black;
 }

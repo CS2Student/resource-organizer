@@ -37,10 +37,10 @@ const Resources = () => {
         <div className="resources-container">
             <h1 className="resources-title">Resource Organizer</h1>
             <div className="navbar">
-                <Link to="/add" className="add-button">Add New Resource</Link>
+                <Link to="/add" className="add-btn">Add New Resource</Link>
                 <input
                 type='text' 
-                placeholder='search...' 
+                placeholder='Search...' 
                 onChange={e => setQuery(e.target.value)}
                 className="searchBar"
                 />
