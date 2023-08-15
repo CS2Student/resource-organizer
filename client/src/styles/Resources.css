@@ -26,3 +26,13 @@
 .update {
     background-color: #2196F3;
 }
+
+.updateSymbol {
+    width: 10px;
+    height: auto;
+}
+
+.deleteSymbol {
+    width: 12px;
+    height: auto;
+}

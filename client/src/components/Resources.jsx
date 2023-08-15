@@ -3,6 +3,8 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import '../styles/Resources.css';
+import updateSymbol from '../assets/images/pencil.png';
+import deleteSymbol from '../assets/images/trash_can.png';
 
 const Resources = () => {
     const [resources, setResources] = useState([]);
@@ -30,8 +32,8 @@ const Resources = () => {
     }
 
     return (
-        <>
-            <Link to="/add">Add New Resource</Link><h1>All Resources</h1>
+        <div className="resources-container">
+            <h1 className="resources-title">All Resources</h1>
             <table className="resources-table">
                 <thead>
                     <tr>
@@ -39,29 +41,34 @@ const Resources = () => {
                         <th>Description</th>
                         <th>Type</th>
                         <th>Category</th>
-                        <th>Sub Category</th>
-                        <th>Link</th>
-                        <th>Edit</th>
+                        <th>Subcategory</th>
+                        <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
                     {resources.map(resource => (
-                        <tr clasName="resource" key={resource.id}>
-                            <td>{resource.title}</td>
+                        <tr key={resource.id}>
+                            <td><a href={resource.link}>{resource.title}</a></td>
                             <td>{resource.description}</td>
                             <td>{resource.type}</td>
                             <td>{resource.category}</td>
                             <td>{resource.sub_category}</td>
-                            <td>{resource.link}</td>
                             <td>
-                                <button className="delete" onClick={() => handleDelete(resource.id)}>Delete</button>
-                                <button className="update"><Link to={`/update/${resource.id}`}>Update</Link></button>
+                                <button className="delete" onClick={() => handleDelete(resource.id)}>
+                                    <img src={deleteSymbol} alt="pencil symbol" className="deleteSymbol"/>
+                                </button>
+                                <button className="update">
+                                    <Link to={`/update/${resource.id}`}>
+                                        <img src={updateSymbol} alt="pencil symbol" className="updateSymbol"/>
+                                    </Link>
+                                </button>
                             </td>
                         </tr>
                     ))}
                 </tbody>
             </table>
-        </>
+            <Link to="/add" className="add-button">Add New Resource</Link>
+        </div>
     )
 }
 
