@@ -32,14 +32,14 @@ app.get("/resources", (req, res) => {
 // POST (CREATE) resource
 app.post("/resources", (req, res) => {
     const query = "INSERT INTO resources \
-                  (`title`, `description`, `type`, `category`, `subcategory`, `link`) \
+                  (`title`, `description`, `type`, `category`, `sub_category`, `link`) \
                   VALUES (?) ";
     const values = [
         req.body.title,
         req.body.description,
         req.body.type,
         req.body.category,
-        req.body.subcategory,
+        req.body.sub_category,
         req.body.link
     ];
 
@@ -48,7 +48,7 @@ app.post("/resources", (req, res) => {
             console.error(err);
             res.status(500).send(err);
         }
-        return res.status(201).json(data);
+        return res.status(201).json("Resource has been created");
     })
 });
 
