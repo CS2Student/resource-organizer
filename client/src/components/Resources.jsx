@@ -25,15 +25,16 @@ const Resources = () => {
             <div className="resources">
                 {resources.map(resource => (
                     <div className="resource" key={resource.id}>
-                        <h2>Title</h2>
-                        <p>Desription</p>
-                        <p>Type</p>
-                        <p>Category</p>
-                        <p>Sub_Category</p>
-                        <p>Link</p>
+                        <h2>Title: {resource.title}</h2>
+                        <p>Desription: {resource.description}</p>
+                        <p>Type: {resource.type}</p>
+                        <p>Category: {resource.category}</p>
+                        <p>Sub_Category: {resource.sub_category}</p>
+                        <p>Link: {resource.link}</p>
                     </div>
                 ))}
             </div>
+            <Link to="/add">Add New Resource</Link>
         </>
     )
 }
