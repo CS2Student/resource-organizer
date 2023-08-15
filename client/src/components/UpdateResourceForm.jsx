@@ -1,9 +1,9 @@
 import React from 'react';
 import { useState } from 'react';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 
-const AddResourceForm = () => {
+const UpdateResourceForm = () => {
     const [resource, setResource] = useState({
         title:"",
         description:"",
@@ -14,17 +14,21 @@ const AddResourceForm = () => {
     });
 
     const navigate = useNavigate();
+    const location = useLocation();
+
+    const resourceId = location.pathname.split("/")[2];
+    console.log(resourceId);
 
     // Update resource properties on user input
     const handleChange = (e) => {
         setResource(prevResource => ({ ...prevResource, [e.target.name]: e.target.value}));
     }
 
-    // Create new resource
+    // Update current resource
     const handleClick = async (e) => {
         e.preventDefault();
         try {
-            await axios.post('http://localhost:8800/resources', resource);
+            await axios.put(`http://localhost:8800/resources/${resourceId}`, resource);
             navigate("/");
         } catch(err) {
             console.error(err);
@@ -33,7 +37,7 @@ const AddResourceForm = () => {
 
     return (
         <>
-            <h1>Add New Resource</h1>
+            <h1>Update Resource</h1>
             <input type='text' placeholder='title' onChange={handleChange} name='title'/>
             <input type='text' placeholder='description' onChange={handleChange} name='description'/>
             <input type='text' placeholder='type' onChange={handleChange} name='type'/>
@@ -45,4 +49,4 @@ const AddResourceForm = () => {
     )
 }
 
-export default AddResourceForm;
+export default UpdateResourceForm;
