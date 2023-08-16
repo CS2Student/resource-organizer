@@ -7,7 +7,7 @@
 
 ### Built With
 
-* [React][React.js]
+* [![React][React.js]][React-url]
 
 <!-- USAGE EXAMPLES -->
 ## Usage
