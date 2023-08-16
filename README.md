@@ -7,7 +7,10 @@
 
 ### Built With
 
-* [![React][React.js]][React-url]
+* React.js
+* Node.js
+* Express.js
+* MySQL
 
 <!-- USAGE EXAMPLES -->
 ## Usage
