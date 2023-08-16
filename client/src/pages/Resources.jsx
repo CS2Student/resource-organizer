@@ -35,7 +35,7 @@ const Resources = () => {
 
     return (
         <div className="resources-container">
-            <h1 className="resources-title">Resource Organizer</h1>
+            <h1 className="resources-title">Resource Database</h1>
             <div className="navbar">
                 <Link to="/add" className="button add-btn">Add New Resource</Link>
                 <input
