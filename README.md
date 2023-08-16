@@ -1,6 +1,6 @@
 ## Demo
 
-[![Product Name Screen Shot][product-screenshot]]()
+[![Resource Organizer Demo Video](http://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)](https://www.youtube.com/watch?v=mb5Kaartmes)
 
 ## About The Project
 
