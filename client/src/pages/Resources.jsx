@@ -7,10 +7,11 @@ import '../styles/Resources.css';
 
 // Return queried items
 const getFilteredItems = (query, items) => {
+    query = query.toUpperCase();
     if (!query) {
         return items;
     }
-    return items.filter(resource => resource.title.includes(query));
+    return items.filter(resource => resource.title.toUpperCase().includes(query));
 }
 
 const Resources = () => {
