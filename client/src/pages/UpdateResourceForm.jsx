@@ -2,6 +2,7 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useNavigate, useLocation } from 'react-router-dom';
+import '../styles/Form.css';
 
 const UpdateResourceForm = () => {
     const [resource, setResource] = useState({
@@ -42,7 +43,7 @@ const UpdateResourceForm = () => {
     }
 
     // Update current resource
-    const handleClick = async (e) => {
+    const handleSave = async (e) => {
         e.preventDefault();
         try {
             await axios.put(`http://localhost:8800/resources/${resourceId}`, resource);
@@ -52,16 +53,23 @@ const UpdateResourceForm = () => {
         }
     }
 
+    const handleCancel = () => {
+        console.log('canceled');
+    }
+
     return (
         <>
-            <h1>Update Resource</h1>
-            <input type='text' placeholder={resource.title} onChange={handleChange} name='title'/>
-            <input type='text' placeholder={resource.description} onChange={handleChange} name='description'/>
-            <input type='text' placeholder={resource.type} onChange={handleChange} name='type'/>
-            <input type='text' placeholder={resource.category} onChange={handleChange} name='category'/>
-            <input type='text' placeholder={resource.sub_category} onChange={handleChange} name='sub_category'/>
-            <input type='text' placeholder={resource.link} onChange={handleChange} name='link'/>
-            <button className="formButton" onClick={handleClick}>Save</button>
+            <h1 className="form-title">Update Resource</h1>
+            <form className="form-container">
+                <input type='text' placeholder={resource.title} onChange={handleChange} name='title'/>
+                <input type='text' placeholder={resource.description} onChange={handleChange} name='description'/>
+                <input type='text' placeholder={resource.type} onChange={handleChange} name='type'/>
+                <input type='text' placeholder={resource.category} onChange={handleChange} name='category'/>
+                <input type='text' placeholder={resource.sub_category} onChange={handleChange} name='sub_category'/>
+                <input type='text' placeholder={resource.link} onChange={handleChange} name='link'/>
+                <button className="button" onClick={handleCancel}>Cancel</button>
+                <button className="button" onClick={handleSave}>Save</button>
+            </form>
         </>
     )
 }

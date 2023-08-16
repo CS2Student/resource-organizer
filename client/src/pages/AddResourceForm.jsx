@@ -2,6 +2,7 @@ import React from 'react';
 import { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import '../styles/Form.css';
 
 const AddResourceForm = () => {
     const [resource, setResource] = useState({
@@ -21,7 +22,7 @@ const AddResourceForm = () => {
     }
 
     // Create new resource
-    const handleClick = async (e) => {
+    const handleSave = async (e) => {
         e.preventDefault();
         try {
             await axios.post('http://localhost:8800/resources', resource);
@@ -31,16 +32,23 @@ const AddResourceForm = () => {
         }
     }
 
+    const handleCancel = () => {
+        console.log('canceled');
+    }
+
     return (
         <>
-            <h1>Add New Resource</h1>
-            <input type='text' placeholder='title' onChange={handleChange} name='title'/>
-            <input type='text' placeholder='description' onChange={handleChange} name='description'/>
-            <input type='text' placeholder='type' onChange={handleChange} name='type'/>
-            <input type='text' placeholder='category' onChange={handleChange} name='category'/>
-            <input type='text' placeholder='sub category' onChange={handleChange} name='sub_category'/>
-            <input type='text' placeholder='link' onChange={handleChange} name='link'/>
-            <button className="formButton" onClick={handleClick}>Save</button>
+            <h1 className="form-title">Add New Resource</h1>
+            <form className="form-container">
+                <input type='text' placeholder='title' onChange={handleChange} name='title'/>
+                <input type='text' placeholder='description' onChange={handleChange} name='description'/>
+                <input type='text' placeholder='type' onChange={handleChange} name='type'/>
+                <input type='text' placeholder='category' onChange={handleChange} name='category'/>
+                <input type='text' placeholder='sub category' onChange={handleChange} name='sub_category'/>
+                <input type='text' placeholder='link' onChange={handleChange} name='link'/>
+                <button className="button" onClick={handleCancel}>Cancel</button>
+                <button className="button" onClick={handleSave}>Save</button>
+            </form>
         </>
     )
 }
