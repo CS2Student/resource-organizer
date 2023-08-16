@@ -11,7 +11,13 @@ const getFilteredItems = (query, items) => {
     if (!query) {
         return items;
     }
-    return items.filter(resource => resource.title.toUpperCase().includes(query));
+    return items.filter(resource => 
+        resource.title.toUpperCase().includes(query) ||
+        resource.description.toUpperCase().includes(query) ||
+        resource.type.toUpperCase().includes(query) ||
+        resource.category.toUpperCase().includes(query) ||
+        resource.sub_category.toUpperCase().includes(query)                 
+    );
 }
 
 const Resources = () => {
