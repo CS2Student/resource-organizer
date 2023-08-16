@@ -95,3 +95,12 @@
     background-color: white;
     color: black;
 }
+
+/* Resources Table */
+
+/* Links */
+
+/* Prevent link color change */
+a:visited, a:active {
+    color: #0074D9;
+}
