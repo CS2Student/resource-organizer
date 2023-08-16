@@ -2,8 +2,8 @@ import React from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
-import FilteredResources from '../components/FilteredResources';
 import '../styles/Resources.css';
+import FilteredResources from '../components/FilteredResources';
 
 // Return queried items
 const getFilteredItems = (query, items) => {

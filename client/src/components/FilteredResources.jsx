@@ -5,6 +5,7 @@ import '../styles/Resources.css';
 import updateSymbol from '../assets/images/pencil.png';
 import deleteSymbol from '../assets/images/minus.png';
 
+
 const FilteredResources = ({ resources }) => {
 
     const handleDelete = async (id) => {
@@ -18,7 +19,12 @@ const FilteredResources = ({ resources }) => {
 
     return (
         <>
-            {resources.map(resource => (
+            {resources.length === 0 ? (
+                <tr>
+                    <td colSpan="6" style={({ textAlign: 'center'})}>No matching search results.</td>
+                </tr>
+            ) : 
+            (resources.map(resource => (
                 <tr key={resource.id}>
                     <td><a href={resource.link}>{resource.title}</a></td>
                     <td>{resource.description}</td>
@@ -36,7 +42,8 @@ const FilteredResources = ({ resources }) => {
                         </button>
                     </td>
                 </tr>
-            ))}
+            )))}
+
         </>
     )
 }
