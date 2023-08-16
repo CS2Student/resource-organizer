@@ -106,6 +106,6 @@
 /* Links */
 
 /* Prevent link color change */
-a:visited, a:active {
+a:visited, a:active a:link {
     color: #0074D9;
 }
