@@ -3,7 +3,6 @@ import axios from 'axios';
 import { useState } from 'react';
 import { useNavigate, useNavigation } from 'react-router-dom';
 import '../styles/Form.css';
-import Notification from '../components/Notification';
 
 const AddResourceForm = () => {
     const [resource, setResource] = useState({
@@ -14,8 +13,6 @@ const AddResourceForm = () => {
         sub_category:"",
         link:""
     });
-
-    const [showNotification, setShowNotification] = useState(false);
 
     const navigate = useNavigate();
 
@@ -28,8 +25,12 @@ const AddResourceForm = () => {
     const handleSave = async (e) => {
         e.preventDefault();
 
-        if (!resource.title || !resource.description || !resource.type) {
-            setShowNotification(true);
+        if (!resource.title) {
+            alert('Title is required')
+        } else if (!resource.description) {
+            alert('Description is required')
+        } else if (!resource.type) {
+            alert('Type is required')
         } else {
             try {
                 await axios.post('http://localhost:8800/resources', resource);
@@ -46,14 +47,11 @@ const AddResourceForm = () => {
 
     return (
         <>
-            <div className="error-msg">
-                {showNotification && <Notification />}
-            </div>
             <h1 className="form-title">Add New Resource</h1>
             <form className="form-container">
-                <input type='text' placeholder='title' onChange={handleChange} name='title'/>
-                <input type='text' placeholder='description' onChange={handleChange} name='description'/>
-                <input type='text' placeholder='type' onChange={handleChange} name='type'/>
+                <input type='text' placeholder='title' onChange={handleChange} name='title' required/>
+                <input type='text' placeholder='description' onChange={handleChange} name='description' required/>
+                <input type='text' placeholder='type' onChange={handleChange} name='type' required/>
                 <input type='text' placeholder='category' onChange={handleChange} name='category'/>
                 <input type='text' placeholder='sub category' onChange={handleChange} name='sub_category'/>
                 <input type='text' placeholder='link' onChange={handleChange} name='link'/>

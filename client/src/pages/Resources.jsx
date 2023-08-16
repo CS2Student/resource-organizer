@@ -35,33 +35,35 @@ const Resources = () => {
     
 
     return (
-        <div className="resources-container">
+        <>
             <h1 className="resources-title">Resource Database</h1>
-            <div className="navbar">
-                <Link to="/add" className="button add-btn">Add New Resource</Link>
-                <input
-                type='text' 
-                placeholder='Search...' 
-                onChange={e => setQuery(e.target.value)}
-                className="button search-btn"
-                />
+            <div className="resources-container">
+                <div className="navbar">
+                    <Link to="/add" className="button add-btn">Add New Resource</Link>
+                    <input
+                    type='text' 
+                    placeholder='Search...' 
+                    onChange={e => setQuery(e.target.value)}
+                    className="button search-btn"
+                    />
+                </div>
+                <table className="resources-table">
+                    <thead>
+                        <tr>
+                            <th>Title</th>
+                            <th>Description</th>
+                            <th>Type</th>
+                            <th>Category</th>
+                            <th>Subcategory</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <FilteredResources resources={FilteredItems}/>
+                    </tbody>
+                </table>
             </div>
-            <table className="resources-table">
-                <thead>
-                    <tr>
-                        <th>Title</th>
-                        <th>Description</th>
-                        <th>Type</th>
-                        <th>Category</th>
-                        <th>Subcategory</th>
-                        <th>Action</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <FilteredResources resources={FilteredItems}/>
-                </tbody>
-            </table>
-        </div>
+        </>
     )
 }
 

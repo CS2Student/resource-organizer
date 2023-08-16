@@ -1,8 +1,9 @@
 :root {
-    --bg-color: #f0f0f0;
+    --bg-color: #D2B48C;
 }
 
 * {
+    
     text-decoration: none;
 }
 
@@ -14,7 +15,10 @@
 
 .resources-title {
     text-align: center;
-    padding-bottom: 10px;
+    padding: 10px;
+    background-color: var(--bg-color);
+    margin: 0;
+    box-shadow: 0px 2px 4px rgba(210, 180, 140, 0.3);
 }
 
 .resources-table {
