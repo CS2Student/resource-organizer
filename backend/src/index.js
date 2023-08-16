@@ -29,6 +29,19 @@ app.get("/resources", (req, res) => {
     });
 });
 
+// GET (READ) resource
+app.get("/resources/:id", (req, res) => {
+    const resourceId = req.params.id;
+    const query = "SELECT * FROM resources WHERE id = ?";
+    db.query(query, [resourceId], (err, data) => {
+        if (err) {
+            console.error(err);
+            return res.status(500).json(err)
+        }
+        return res.status(200).json(data);
+    })
+})
+
 // POST (CREATE) resource
 app.post("/resources", (req, res) => {
     const query = "INSERT INTO resources \
