@@ -43,11 +43,20 @@ const UpdateResourceForm = () => {
     // Update current resource
     const handleSave = async (e) => {
         e.preventDefault();
-        try {
-            await axios.put(`http://localhost:8800/resources/${resourceId}`, resource);
-            navigate("/");
-        } catch(err) {
-            console.error(err);
+
+        if (!resource.title) {
+            alert('Title is required')
+        } else if (!resource.description) {
+            alert('Description is required')
+        } else if (!resource.type) {
+            alert('Type is required')
+        } else {
+            try {
+                await axios.put(`http://localhost:8800/resources/${resourceId}`, resource);
+                navigate("/");
+            } catch(err) {
+                console.error(err);
+            }
         }
     }
 
