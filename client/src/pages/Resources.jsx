@@ -45,7 +45,7 @@ const Resources = () => {
             <h1 className="resources-title">Resource Database</h1>
             <div className="resources-container">
                 <div className="navbar">
-                    <Link to="/add" className="button add-btn">Add New Resource</Link>
+                    <Link to="/add" className="button add-btn">New Resource</Link>
                     <input
                     type='text' 
                     placeholder='Search...' 

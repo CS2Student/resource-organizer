@@ -47,7 +47,7 @@ const AddResourceForm = () => {
 
     return (
         <>
-            <h1 className="form-title">Add New Resource</h1>
+            <h1 className="form-title">New Resource</h1>
             <form className="form-container">
                 <input type='text' placeholder='title' onChange={handleChange} name='title' required/>
                 <input type='text' placeholder='description' onChange={handleChange} name='description' required/>
