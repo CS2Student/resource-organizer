@@ -1,7 +1,7 @@
 import React from 'react';
-import { useState } from 'react';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
+import { useState } from 'react';
+import { useNavigate, useNavigation } from 'react-router-dom';
 import '../styles/Form.css';
 
 const AddResourceForm = () => {
@@ -33,7 +33,7 @@ const AddResourceForm = () => {
     }
 
     const handleCancel = () => {
-        console.log('canceled');
+        navigate("/");
     }
 
     return (

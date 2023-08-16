@@ -54,7 +54,7 @@ const UpdateResourceForm = () => {
     }
 
     const handleCancel = () => {
-        console.log('canceled');
+        navigate("/");
     }
 
     return (
