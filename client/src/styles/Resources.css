@@ -1,10 +1,5 @@
 :root {
-    --main-color: #28282B;
-    --bg-color: #28282B;
-    --text-color: white;
-    --text-color-hover: #01C38D;
-
-    --burger-menu-color: #262626;
+    --bg-color: #f0f0f0;
 }
 
 * {
@@ -26,8 +21,6 @@
     width: 100%;
     border-collapse: collapse;
     margin-bottom: 20px;
-    border-left: 1px solid #ddd;
-    border-right: 1px solid #ddd;
 }
 
 .resources-table th, .resources-table td {
@@ -41,25 +34,53 @@
 }
 
 /* Buttons */
-
-.delete-btn, .update-btn, .add-btn, .searchBar{
+.button {
+    background-color: #FFFFFF;
+    border: 1px solid rgb(209,213,219);
+    border-radius: .5rem;
+    box-sizing: border-box;
+    color: #111827;
+    font-size: .875rem;
+    font-weight: 600;
+    line-height: 1.25rem;
     padding: 5px 10px;
-    margin-right: 5px;
-    border: none;
-    background-color: #f44336;
-    color: white;
+    text-align: center;
+    text-decoration: none #D1D5DB solid;
+    text-decoration-thickness: auto;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
     cursor: pointer;
-    border-radius: 3px;
-    border: 1px solid;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+}
+  
+.button:hover {
+    background-color: rgb(249,250,251);
 }
 
-.update-btn, .add-btn{
-    background-color: #2196F3;
+.button:focus {
+    outline: 2px solid transparent;
+    outline-offset: 2px;
+}
+
+.button:focus-visible {
+    box-shadow: none;
 }
 
 .symbol {
     width: 10px;
     height: auto;
+}
+
+.add-btn {
+    padding: 6.5px;
+    padding-bottom: 7.2px;
+    margin-right: 67rem;
+}
+
+.search-btn {
+    text-align: left;
+    cursor: text;
 }
 
 /* Navbar */

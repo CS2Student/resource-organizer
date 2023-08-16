@@ -26,10 +26,10 @@ const FilteredResources = ({ resources }) => {
                     <td>{resource.category}</td>
                     <td>{resource.sub_category}</td>
                     <td>
-                        <button className="delete-btn" onClick={() => handleDelete(resource.id)}>
+                        <button className="button" onClick={() => handleDelete(resource.id)}>
                             <img src={deleteSymbol} alt="delete symbol" className="symbol"/>
                         </button>
-                        <button className="update-btn">
+                        <button className="button">
                             <Link to={`/update/${resource.id}`}>
                                 <img src={updateSymbol} alt="update symbol" className="symbol"/>
                             </Link>
