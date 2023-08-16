@@ -50,3 +50,8 @@
 .button:focus-visible {
     box-shadow: none;
 }
+
+/* Error Message */
+.error-msg {
+    
+}

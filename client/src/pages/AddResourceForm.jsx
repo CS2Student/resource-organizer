@@ -3,6 +3,7 @@ import axios from 'axios';
 import { useState } from 'react';
 import { useNavigate, useNavigation } from 'react-router-dom';
 import '../styles/Form.css';
+import Notification from '../components/Notification';
 
 const AddResourceForm = () => {
     const [resource, setResource] = useState({
@@ -14,6 +15,8 @@ const AddResourceForm = () => {
         link:""
     });
 
+    const [showNotification, setShowNotification] = useState(false);
+
     const navigate = useNavigate();
 
     // Update resource properties on user input
@@ -24,11 +27,16 @@ const AddResourceForm = () => {
     // Create new resource
     const handleSave = async (e) => {
         e.preventDefault();
-        try {
-            await axios.post('http://localhost:8800/resources', resource);
-            navigate("/");
-        } catch(err) {
-            console.error(err);
+
+        if (!resource.title || !resource.description || !resource.type) {
+            setShowNotification(true);
+        } else {
+            try {
+                await axios.post('http://localhost:8800/resources', resource);
+                navigate("/");
+            } catch(err) {
+                console.error(err);
+            }
         }
     }
 
@@ -38,6 +46,9 @@ const AddResourceForm = () => {
 
     return (
         <>
+            <div className="error-msg">
+                {showNotification && <Notification />}
+            </div>
             <h1 className="form-title">Add New Resource</h1>
             <form className="form-container">
                 <input type='text' placeholder='title' onChange={handleChange} name='title'/>
